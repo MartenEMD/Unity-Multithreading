@@ -13,7 +13,7 @@ This script provides some basic methods to do this.
 * Find GameObject
 * Change text color
 * SetActive
-* multiple more
+* ... Multiple more
 
 ### Extendable
 You might run into the problem that you need a method that is not implemented by my script.
