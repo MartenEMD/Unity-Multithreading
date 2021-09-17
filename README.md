@@ -18,4 +18,4 @@ This script provides some basic methods to do this.
 ### Extendable
 You might run into the problem that you need a method that is not implemented by my script.
 After a look into the 'How to extend' file you should be able to add your required functionality on the script.
-Feel free to to add new functionality to this repo iva pull request.
+Feel free to to add new functionality to this repository via a pull request.
