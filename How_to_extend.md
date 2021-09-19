@@ -18,7 +18,7 @@
 4. Add a command pool stack and initialise it in the constuctor
 5. Create the method like this:
 ```c#
-/// <summary>
+    /// <summary>
     /// Get text from a text field
     /// </summary>
     /// <param name="name">Name of the GameObject</param>
@@ -40,4 +40,26 @@
         QueueCommand(command);                                      //Queue the command to be executed in the Execute method
     }
 ```
+6. Implement functionality in the execute method
+    1. Add inside the switch your command like this:
+    ```c#
+    case CommandType.GetText:
+                    {
+                        GetTextCommand command = (GetTextCommand)baseCommand;   //Convert the base command to the specific command
+                        string name = command.Name;                             //Assign the parameters
+                        Result<string> result = command.Result;
+
+                        command.Name = null;                                    //Set the command values to null
+                        command.Result = null;
+
+                        ReturnToPool(getTextCommandPool, command);              //Return the command to pool
+
+                        GameObject gameObject = GameObject.Find(name);          //Do the functionality
+                        Text GOText = gameObject.GetComponent<Text>();
+                        string text = GOText.text;
+
+                        result.Ready(text);                                     //Call the ready function and if needed return something
+                        break;
+                    }
+    ```
 
